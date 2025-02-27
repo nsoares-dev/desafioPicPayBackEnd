@@ -1,0 +1,143 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Desafio-PicPay",
+    "version": "1.0"
+  },
+  "paths": {
+    "/Carteira/CriarCarteira": {
+      "post": {
+        "tags": [
+          "Carteira"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarteiraRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarteiraRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarteiraRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Transferencia": {
+      "post": {
+        "tags": [
+          "Transferencia"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferenciaRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferenciaRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferenciaRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CarteiraRequest": {
+        "required": [
+          "cpfcnpj",
+          "email",
+          "nomeCompleto",
+          "saldoConta",
+          "senha",
+          "tipoUsuario"
+        ],
+        "type": "object",
+        "properties": {
+          "nomeCompleto": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "cpfcnpj": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "email": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "senha": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "saldoConta": {
+            "type": "number",
+            "format": "double"
+          },
+          "tipoUsuario": {
+            "$ref": "#/components/schemas/TipoUsuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoUsuario": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "TransferenciaRequest": {
+        "required": [
+          "recebedorId",
+          "remetenteId",
+          "valor"
+        ],
+        "type": "object",
+        "properties": {
+          "valor": {
+            "type": "number",
+            "format": "double"
+          },
+          "remetenteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recebedorId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

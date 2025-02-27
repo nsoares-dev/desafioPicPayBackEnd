@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "Desafio_PicPay.Controllers.CarteiraController",
+    "Method": "PostCarteira",
+    "RelativePath": "Carteira/CriarCarteira",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Desafio_PicPay.Models.Requisito.CarteiraRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Desafio_PicPay.Controllers.TransferenciaController",
+    "Method": "PostTransferencia",
+    "RelativePath": "Transferencia",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Desafio_PicPay.Models.Requisito.TransferenciaRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
